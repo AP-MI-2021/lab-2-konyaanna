@@ -72,6 +72,32 @@ def test_is_palindrome():
         assert is_palindrome(75) == False
         assert is_palindrome(33) == True
 
+def get_base_2(x):
+            '''
+                transforma un nr din baza 10 in baza 2
+                :param x: numar intreg
+                :return: nr in baza 2
+                '''
+            rest=0
+            nou=0
+            p=1
+            while x>0:
+                if x%2==0:
+                    rest=0
+                else:
+                    rest=1
+                x=x//2
+                nou=rest*p+nou
+                p=p*10
+            return nou
+
+def test_get_base_2():
+    assert get_base_2(50)==110010
+    assert get_base_2(5)==101
+    #assert get_base_2()
+    #assert get_base_2()
+    #assert get_base_2()
+
 
 def main():
     n = int(input("dati nr: "))
@@ -85,5 +111,10 @@ def main():
         print("numarul ", n, " este palindrom")
     else:
         print("numarul ", n, " NU este palindrom")
+    n = int(input("dati nr: "))
+    test_get_base_2()
+    print(get_base_2(n))
 
 main()
+
+
